@@ -1,1 +1,3 @@
-testing123
+The purpose of this project is to convert a spreadsheet containing names and phone numbers to a vcard file.
+At altec, I'm provided a monthly spreadsheet of names and numbers and have to use that to updates our vcard file (containing roughly 350 individual contacts) manually
+Today, we automate this to improve time wasted and insure the users always have an up-to-date list on contacts
