@@ -1,4 +1,4 @@
-test = "suck it"
+test = "testing"
 print (test[2])
     
     
