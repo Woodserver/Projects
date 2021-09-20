@@ -15,13 +15,11 @@ phonenumber = ""
 for datalines in range(spreadsheet.nrows):
     if (spreadsheet.cell_value(datalines, 0))[2] == '9'or'8'or'7'or'6'or'5'or'4'or'3'or'2'or'1'or'0':
         phonenumber = (spreadsheet.cell_value(datalines, 0))
-    else:
+    elif (spreadsheet.cell_value(datalines, 0))[2] != '9'or'8'or'7'or'6'or'5'or'4'or'3'or'2'or'1'or'0':
         fullname = (spreadsheet.cell_value(datalines, 0))
-
-
     print(f"""BEGIN:VCARD
-        VERSION:3.0
-        FN:{lastname}, {fullname}
-        TEL;TYPE=VOICE,CELL;VALUE=text:{phonenumber}
-        END:VCARD
-        """)
+    VERSION:3.0
+    FN:{lastname}, {fullname}
+    TEL;TYPE=VOICE,CELL;VALUE=text:{phonenumber}
+    END:VCARD
+    """)
