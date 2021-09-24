@@ -11,15 +11,21 @@ lastname = ""
 phonenumber = ""
 
 
+def write_to_vcard():
+    vcardfile.write(f"""
+    BEGIN:VCARD
+    VERSION:3.0
+    FN:{lastname}, {firstname}
+    TEL;TYPE=VOICE,CELL;VALUE=text:{phonenumber}
+    END:VCARD""")
+
  ###Sorting each dataline in the spreadsheet. Checking if the 3rd value is a number
 for datalines in range(spreadsheet.nrows):
-    if (spreadsheet.cell_value(datalines, 0))[2] == '9'or'8'or'7'or'6'or'5'or'4'or'3'or'2'or'1'or'0':
+    if ("9" in (spreadsheet.cell_value(datalines, 0))[2]):     ### Bug found, duplicating code based on multiple "9"'s in the string
         phonenumber = (spreadsheet.cell_value(datalines, 0))
-    elif (spreadsheet.cell_value(datalines, 0))[2] != '9'or'8'or'7'or'6'or'5'or'4'or'3'or'2'or'1'or'0':
+        
+    if ("9" not in (spreadsheet.cell_value(datalines, 0))[2]):    #Duplicating names for some reason
         fullname = (spreadsheet.cell_value(datalines, 0))
-    print(f"""BEGIN:VCARD
-    VERSION:3.0
-    FN:{lastname}, {fullname}
-    TEL;TYPE=VOICE,CELL;VALUE=text:{phonenumber}
-    END:VCARD
-    """)
+        firstname=fullname.split()[0]
+        lastname=fullname.split()[-1]
+    write_to_vcard()
