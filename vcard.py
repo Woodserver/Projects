@@ -17,7 +17,7 @@ def write_to_vcard():
     FN:{lastname}, {firstname}
     TEL;TYPE=VOICE,CELL;VALUE=text:{phonenumber}
     END:VCARD""")
-    break
+    
 
 def check_if_phonenumber(phonenumber: str) -> str:
     if ("9" in (spreadsheet.cell_value(datalines, 0))[2]):     ### Bug found, duplicating code based on multiple "9"'s in the string
@@ -27,8 +27,8 @@ def check_if_phonenumber(phonenumber: str) -> str:
 def check_if_name(firstname: str) -> str:
     if ("9" not in (spreadsheet.cell_value(datalines, 0))[2]):    #Duplicating names for some reason
         fullname = (spreadsheet.cell_value(datalines, 0))
-        return firstname == fullname.split()[0]
-        #return lastname == fullname.split()[-1]
+        firstname == fullname.split()[0]
+        lastname == fullname.split()[-1]
 
  ###Sorting each dataline in the spreadsheet. Checking if the 3rd value is a number
 for datalines in range(spreadsheet.nrows):
