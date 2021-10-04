@@ -1,0 +1,6 @@
+The purpose of this project is to convert a spreadsheet containing names and phone numbers to a vcard file.
+A vcard is used upload contacts to cellphones. The format for these files are mostly standard besides apple.
+For this reason, we have two scripts that do the exact same thing but the final output is modified to match
+the format apple devices require.
+
+For questions, feel free to email me at prewoo9170@gmail.com
